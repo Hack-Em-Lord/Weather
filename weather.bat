@@ -14,11 +14,12 @@ echo                                          ----------------------------------
 echo. & echo Select a Language ? 
 echo. & echo  [1]: English & echo  [2]: Vietnamese & echo.
 echo ___________________________________________________ 
-echo. & echo  [3]: Exit
+echo. & echo  [3]: Exit & echo  [4]: About & echo. 
 	set /p lang= Select [ ? ] = 
 	if %lang%==1 goto :eng
 	if %lang%==2 goto :vie
     if %lang%==3 exit
+    if %lang%==4 goto :about
 
 :vie
 cls
@@ -29,7 +30,7 @@ echo. & echo  [1]: Ha Noi & echo  [2]: TP. Ho Chi Minh  & echo  [3]: TP. Da Nang
         if %vie% ==2 (curl -H "Accept-Language: vi" wttr.in/hochiminh & pause)
         if %vie% ==3 (curl -H "Accept-Language: vi" wttr.in/danang & pause )
         if %vie% ==4 goto eng
-goto :about
+goto :start
 
 :eng
 cls
@@ -38,7 +39,7 @@ echo. & echo Example: newyork, vietnam, usa,...
     set /p eng= Select [ ? ] = 
     curl https://wttr.in/%eng%
     pause
-goto :about
+goto :start
 
 :about
 cls
@@ -50,4 +51,3 @@ start https://discord.gg/pZhZDu9Anw
 start https://github.com/Hack-Em-Lord
 pause
 goto :start
-
